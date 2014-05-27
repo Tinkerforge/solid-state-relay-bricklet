@@ -1,5 +1,5 @@
-Dual Solid State Relay Bricklet
-===============================
+Solid State Relay Bricklet
+==========================
 
 **This Bricklet is currently in development**
 
