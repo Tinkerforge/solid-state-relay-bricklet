@@ -23,9 +23,8 @@
 
 #include "brickletlib/bricklet_entry.h"
 #include "bricklib/bricklet/bricklet_communication.h"
-#include "bricklib/drivers/adc/adc.h"
 #include "config.h"
-#include "bricklib/utility/util_definitions.h"
+#include "bricklib/utility/init.h"
 
 void invocation(const ComType com, const uint8_t *data) {
 	switch(((MessageHeader*)data)->fid) {
