@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "xyz" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 int main() {
 	// Create IP connection
@@ -14,7 +14,7 @@ int main() {
 
 	// Create device object
 	SolidStateRelay ssr;
-	solid_state_relay_create(&ssr, UID, &ipcon); 
+	solid_state_relay_create(&ssr, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
