@@ -8,11 +8,11 @@ UID = "XYZ" # Change to your UID
 import time
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_solid_state_relay import SolidStateRelay
+from tinkerforge.bricklet_solid_state_relay import BrickletSolidStateRelay
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    ssr = SolidStateRelay(UID, ipcon) # Create device object
+    ssr = BrickletSolidStateRelay(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
