@@ -19,7 +19,7 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Turn relay on/off for 10 times with 1 second delay
 for i in 0..9
   sleep 1
-  puts "#{i}"
+
   if i % 2 == 1
     ssr.set_state true
   else

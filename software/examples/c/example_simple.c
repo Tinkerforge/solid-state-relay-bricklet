@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define IPCON_EXPOSE_MILLISLEEP
+
 #include "ip_connection.h"
 #include "bricklet_solid_state_relay.h"
 
@@ -23,8 +25,17 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Turn relay on.
-	solid_state_relay_set_state(&ssr, true);
+	// Turn relay on/off for 10 times with 1 second delay
+	int i;
+	for(i = 0; i < 10; ++i) {
+		millisleep(1000);
+
+		if (i % 2 != 0) {
+			solid_state_relay_set_state(&ssr, true);
+		} else {
+			solid_state_relay_set_state(&ssr, false);
+		}
+	}
 
 	printf("Press key to exit\n");
 	getchar();
