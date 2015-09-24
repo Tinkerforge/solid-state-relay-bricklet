@@ -8,7 +8,7 @@ use Tinkerforge\BrickletSolidStateRelay;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = '6hL'; // Change to your UID
+const UID = 'XYZ'; // Change to your UID
 
 $ipcon = new IPConnection(); // Create IP connection
 $ssr = new BrickletSolidStateRelay(UID, $ipcon); // Create device object
@@ -16,15 +16,12 @@ $ssr = new BrickletSolidStateRelay(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Turn relay on/off for 10 times with 1 second delay
-for($i = 0; $i < 10; $i++) {
+// Turn relay on/off 10 times with 1 second delay
+for($i = 0; $i < 5; $i++) {
     sleep(1);
-
-    if ($i % 2 == 1) {
-        $ssr->setState(TRUE);
-    } else {
-        $ssr->setState(FALSE);
-    }
+    $ssr->setState(TRUE);
+    sleep(1);
+    $ssr->setState(FALSE);
 }
 
 echo "Press key to exit\n";

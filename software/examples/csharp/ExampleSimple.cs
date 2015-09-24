@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 using Tinkerforge;
 
 class Example
@@ -9,28 +11,23 @@ class Example
 	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletSolidStateRelay ssr = new BrickletSolidStateRelay(UID, ipcon); // Create device object
+		BrickletSolidStateRelay ssr =
+		  new BrickletSolidStateRelay(UID, ipcon); // Create device object
 
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Turn relay on/off for 10 times with 1 second delay
-		for(int i = 0; i < 10; i++)
+		// Turn relay on/off 10 times with 1 second delay
+		for(int i = 0; i < 5; i++)
 		{
-			System.Threading.Thread.Sleep(1000);
-
-			if(i % 2 == 0) 
-			{
-				ssr.SetState(true);
-			} 
-			else
-			{
-				ssr.SetState(false);
-			}
+			Thread.Sleep(1000);
+			ssr.SetState(true);
+			Thread.Sleep(1000);
+			ssr.SetState(false);
 		}
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

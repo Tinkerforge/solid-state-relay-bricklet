@@ -13,21 +13,15 @@ my $ssr = Tinkerforge::BrickletSolidStateRelay->new(&UID, $ipcon); # Create devi
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Turn relay on/off for 10 times with 1 second delay
-for (my $i = 0; $i < 10; $i++)
+# Turn relay on/off 10 times with 1 second delay
+for (my $i = 0; $i < 5; $i++)
 {
     sleep(1);
-
-    if ($i % 2)
-    {
-        $ssr->set_state(1);
-    }
-    else
-    {
-        $ssr->set_state(0);
-    }
+    $ssr->set_state(1);
+    sleep(1);
+    $ssr->set_state(0);
 }
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

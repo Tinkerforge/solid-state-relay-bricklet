@@ -16,15 +16,12 @@ ssr = BrickletSolidStateRelay.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Turn relay on/off for 10 times with 1 second delay
-for i in 0..9
+# Turn relay on/off 10 times with 1 second delay
+for _ in 0..4
   sleep 1
-
-  if i % 2 == 1
-    ssr.set_state true
-  else
-    ssr.set_state false
-  end
+  ssr.set_state true
+  sleep 1
+  ssr.set_state false
 end
 
 puts 'Press key to exit'

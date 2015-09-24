@@ -17,14 +17,12 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Turn relay on/off for 10 times with 1 second delay
-    for i in range(10):
+    # Turn relay on/off 10 times with 1 second delay
+    for i in range(5):
         time.sleep(1)
+        ssr.set_state(True)
+        time.sleep(1)
+        ssr.set_state(False)
 
-        if i % 2:
-            ssr.set_state(True)
-        else:
-            ssr.set_state(False)
-
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()
