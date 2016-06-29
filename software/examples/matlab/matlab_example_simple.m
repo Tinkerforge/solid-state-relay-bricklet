@@ -19,6 +19,7 @@ function matlab_example_simple()
         pause(1);
         ssr.setState(false);
     end
+
     input('Press key to exit\n', 's');
     ipcon.disconnect();
 end
