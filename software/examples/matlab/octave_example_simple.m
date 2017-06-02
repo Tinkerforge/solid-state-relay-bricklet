@@ -5,8 +5,8 @@ function octave_example_simple()
     PORT = 4223;
     UID = "XYZ"; % Change XYZ to the UID of your Solid State Relay Bricklet
 
-    ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
-    ssr = java_new("com.tinkerforge.BrickletSolidStateRelay", UID, ipcon); % Create device object
+    ipcon = javaObject("com.tinkerforge.IPConnection"); % Create IP connection
+    ssr = javaObject("com.tinkerforge.BrickletSolidStateRelay", UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
