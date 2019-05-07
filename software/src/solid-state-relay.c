@@ -62,7 +62,6 @@ void set_state(const ComType com, const SetState *data) {
 		PIN_RELAY.pio->PIO_CODR = PIN_RELAY.mask;
 	}
 
-	BC->time = 0;
 	BC->time_remaining = 0;
 
 	BA->com_return_setter(com, data);

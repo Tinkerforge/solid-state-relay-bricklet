@@ -1,2 +1,5 @@
 2014-08-06: 2.0.0 (d158075)
 - Initial version
+
+2019-05-07: 2.0.1 (<unknown>)
+- Don't clear monoflop time on monoflop abort to match documentation
